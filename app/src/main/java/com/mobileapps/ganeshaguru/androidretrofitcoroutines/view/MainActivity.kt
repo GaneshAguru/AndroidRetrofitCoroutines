@@ -1,10 +1,10 @@
 package com.mobileapps.ganeshaguru.androidretrofitcoroutines.view
 
+import androidx.lifecycle.ViewModelProvider
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobileapps.ganeshaguru.androidretrofitcoroutines.databinding.ActivityMainBinding
 import com.mobileapps.ganeshaguru.androidretrofitcoroutines.viewmodel.ListViewModel
@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
+
+        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh()
 
         binding.countriesList.apply {
